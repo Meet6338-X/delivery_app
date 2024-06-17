@@ -15,7 +15,7 @@ class myapp1 extends StatelessWidget {
       title: 'Delivery App',
       home: SplashScreen(),
       // routes: {
-      //   '/vegetablelist': (context) => const VegetableListScreen(),
+      //   '/vegetable': (context) => const VegetableListScreen(),
       //   '/fruitlist'
       // },
     );
