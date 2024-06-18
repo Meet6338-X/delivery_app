@@ -6,9 +6,9 @@ import 'package:delivery_app/vegetableinfo.dart';
 import 'package:delivery_app/vegetablelist.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(myapp1());
+void main() => runApp(myapp2());
 
-class myapp1 extends StatelessWidget {
+class myapp2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

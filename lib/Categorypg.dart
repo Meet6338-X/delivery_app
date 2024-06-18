@@ -63,25 +63,6 @@ class CategoriesScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.grid_view),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_outlined),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline_outlined),
-            label: 'Profile',
-          ),
-        ],
-        currentIndex: 0,
-        selectedItemColor: Colors.purple,
-        onTap: (index) {},
-      ),
     );
   }
 

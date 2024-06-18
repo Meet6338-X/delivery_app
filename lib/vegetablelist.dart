@@ -1,3 +1,4 @@
+import 'package:delivery_app/Categorypg.dart';
 import 'package:delivery_app/vegetableinfo.dart';
 import 'package:flutter/material.dart';
 
@@ -46,7 +47,12 @@ class _VegetableListScreenState extends State<VegetableListScreen> {
                     children: [
                       IconButton(
                           padding: EdgeInsets.zero,
-                          onPressed: (){}, icon: Icon(Icons.arrow_back_ios)),
+                          onPressed: (){
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                builder: (context) => CategoriesScreen(),),);
+                          }, icon: Icon(Icons.arrow_back_ios)),
                       Text(
                         'Vegetables',
                         style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -90,28 +96,6 @@ class _VegetableListScreenState extends State<VegetableListScreen> {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.grid_view),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_outlined),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline_outlined),
-            label: 'Profile',
-          ),
-        ],
-        currentIndex: 0, // Use _selectedIndex if needed
-        selectedItemColor: Colors.amber[800],
-        onTap: (index) {
-          // Handle bottom navigation bar item tap
-          // You can add navigation logic here
-        },
       ),
     );
   }

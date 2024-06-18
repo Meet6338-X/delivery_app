@@ -111,7 +111,7 @@ class _checkoutScreenState extends State<CheckoutScreen> {
                   ),
                   SizedBox(width: 15),
                   Text(
-                    'I’ll pick it up myself',
+                    'I will pick it up myself',
                     style: TextStyle(fontSize: 22, color: Color(0xff9586A8)),
                   )
                 ],
@@ -187,30 +187,6 @@ class _checkoutScreenState extends State<CheckoutScreen> {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.grid_view),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_outlined),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline_outlined),
-            label: 'Profile',
-          ),
-        ],
-        currentIndex: myindex, // Use _selectedIndex if needed
-        selectedItemColor: Colors.purple,
-        onTap: (index) {
-          setState(() {
-            myindex = index;
-          });
-        },
       ),
     );
   }

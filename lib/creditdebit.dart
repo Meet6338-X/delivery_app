@@ -15,7 +15,16 @@ class _creditdebitstateop extends State<creditdebitstate> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               IconButton(
-                  onPressed: () {}, icon: Icon(Icons.arrow_back_ios_new)),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CheckoutScreen(),
+                    ),
+                  );
+                },
+                icon: Icon(Icons.arrow_back_ios_new),
+              ),
               SizedBox(
                 height: 10,
               ),

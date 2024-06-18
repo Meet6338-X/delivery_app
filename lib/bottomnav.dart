@@ -1,3 +1,4 @@
+import 'package:delivery_app/Categorypg.dart';
 import 'package:delivery_app/Checkout.dart';
 import 'package:delivery_app/Splash_screen.dart';
 import 'package:delivery_app/creditdebit.dart';
@@ -11,9 +12,9 @@ class BottomNavigationBarWidget extends StatefulWidget {
 class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
   int _currentIndex = 0;
   List<Widget> _widgetList = [
+    CategoriesScreen(),
     CheckoutScreen(),
-    SplashScreen(),
-    creditdebitstate(),
+    Container(),
   ];
 
   void _onTabTapped(int index) {

@@ -2,6 +2,8 @@ import 'package:delivery_app/Categorypg.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import 'bottomnav.dart';
+
 class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -88,7 +90,7 @@ class SplashScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => CategoriesScreen()),
+                            builder: (context) => BottomNavigationBarWidget()),
                       );
                     },
                     child: Text('ORDER NOW'),
