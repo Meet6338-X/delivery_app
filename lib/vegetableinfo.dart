@@ -22,55 +22,53 @@ class _VegeInfoState extends State<VegetableInfoState> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Color(0xFFF6F5F5), // Set the background color
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Stack(
-                children: [
-                  CarouselSlider.builder(
-                    options: CarouselOptions(
-                      height: 250,
-                      viewportFraction: 1,
-                      autoPlay: true,
-                      onPageChanged: (index, reason) =>
-                          setState(() => activeIndex = index),
+      body: SafeArea(
+        child: Container(
+          color: Color(0xFFF6F5F5), // Set the background color
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Stack(
+                  children: [
+                    CarouselSlider.builder(
+                      options: CarouselOptions(
+                        height: 250,
+                        viewportFraction: 1,
+                        autoPlay: true,
+                        onPageChanged: (index, reason) =>
+                            setState(() => activeIndex = index),
+                      ),
+                      itemCount: vegetableImages.length,
+                      itemBuilder: (context, index, realIndex) {
+                        return buildImage(vegetableImages[index], index);
+                      },
                     ),
-                    itemCount: vegetableImages.length,
-                    itemBuilder: (context, index, realIndex) {
-                      return buildImage(vegetableImages[index], index);
-                    },
-                  ),
-                  Positioned(
-                    bottom: 10,
-                    left: 0,
-                    right: 0,
-                    child: Center(
-                      child: buildIndicator(),
-                    ),
-                  ),
-                ],
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white, // Background color inside the container
-                  borderRadius: BorderRadius.only(
-                    topLeft:
-                        Radius.circular(30), // Radius for the top-left corner
-                    topRight:
-                        Radius.circular(30), // Radius for the top-right corner
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black26,
-                      blurRadius: 5,
-                      offset: Offset(0, 2),
+                    Positioned(
+                      bottom: 10,
+                      left: 0,
+                      right: 0,
+                      child: Center(
+                        child: buildIndicator(),
+                      ),
                     ),
                   ],
                 ),
-                padding: EdgeInsets.all(16),
-                child: Expanded(
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 5,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  padding: EdgeInsets.all(16),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,16 +100,15 @@ class _VegeInfoState extends State<VegetableInfoState> {
                       SizedBox(height: 130),
                       Row(
                         children: [
-                          SizedBox(
-                            width: 20,
-                          ),
+                          SizedBox(width: 20),
                           Container(
                             height: 50,
                             width: 80,
                             decoration: BoxDecoration(
-                                border: Border.all(),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(20))),
+                              border: Border.all(),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20)),
+                            ),
                             child: IconButton(
                               icon: Icon(
                                 isLiked
@@ -121,14 +118,13 @@ class _VegeInfoState extends State<VegetableInfoState> {
                               color: isLiked ? Colors.red : Colors.black,
                               onPressed: () {
                                 setState(() {
-                                  likedItems[0] = !isLiked;
+                                  isLiked = !isLiked;
+                                  likedItems[0] = isLiked;
                                 });
                               },
                             ),
                           ),
-                          SizedBox(
-                            width: 90,
-                          ),
+                          SizedBox(width: 90),
                           ElevatedButton(
                             onPressed: () {
                               Navigator.push(
@@ -138,17 +134,22 @@ class _VegeInfoState extends State<VegetableInfoState> {
                                 ),
                               );
                             },
-                            child: Container(
-                              child: Row(
-                                children: [
-                                  Icon(Icons.shopping_cart,size: 20,color: Colors.white,),
-                                  SizedBox(width: 10,),
-                                  Text('ADD TO CART',style: TextStyle(color: Colors.white),),
-                                ],
-                              ),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.shopping_cart,
+                                  size: 20,
+                                  color: Colors.white,
+                                ),
+                                SizedBox(width: 10),
+                                Text(
+                                  'ADD TO CART',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ],
                             ),
                             style: ButtonStyle(
-                              backgroundColor: WidgetStatePropertyAll(
+                              backgroundColor: MaterialStateProperty.all(
                                 Color(0xff0BCE83),
                               ),
                             ),
@@ -158,8 +159,8 @@ class _VegeInfoState extends State<VegetableInfoState> {
                     ],
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
